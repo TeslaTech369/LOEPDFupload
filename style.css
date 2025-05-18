@@ -1,0 +1,335 @@
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Background Gradient */
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0b3d91 0%, #0a1e40 100%);
+  overflow: hidden;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  z-index: 1; /* Ensure content is above pseudo element */
+  position: relative; /* Needed for z-index to work */
+}
+
+/* Particle container */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none; /* Prevent interaction blocking */
+}
+
+/* Glow effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 224, 255, 0.3), transparent 70%);
+  animation: pulseGlow 10s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none; /* Prevent blocking interactions */
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+
+footer {
+    text-align: center;
+    padding: 15px 10px;
+    color: #04ffc9; 
+    font-size: 16px;
+}
+
+footer strong {
+    color: #02f5fd; 
+    font-weight: 600;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+  cursor: default;
+
+}
+
+
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #0d1117;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-menu li a {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a:focus {
+  background-color: #238636;
+  color: white;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #0d1117;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    width: 150px;
+    border-radius: 5px;
+  }
+  .nav-menu.show {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Flash messages */
+.flash-messages {
+  margin-bottom: 15px;
+}
+
+.flash-message {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.flash-message.success {
+  background-color: #238636;
+  color: white;
+}
+
+.flash-message.danger {
+  background-color: #cf222e;
+  color: white;
+}
+
+.flash-message.warning {
+  background-color: #e3b341;
+  color: #222;
+}
+
+.flash-message.info {
+  background-color: #39c5bb;
+  color: white;
+}
+
+/* Mode Cards */
+.mode-cards, .subject-cards, .pdf-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.mode-card, .subject-card, .pdf-card {
+  background: #0d1117;
+  border-radius: 10px;
+  padding: 25px 20px;
+  text-align: center;
+  font-weight: 700;
+  color: #58a6ff;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mode-card:hover, .subject-card:hover, .pdf-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(88,166,255,0.7);
+}
+
+/* PDF Card text */
+.pdf-title {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: #58a6ff;
+}
+
+.pdf-description {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+/* PDF View */
+.pdf-preview iframe {
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(88,166,255,0.7);
+}
+
+/* Forms */
+form {
+  background: #0d1117;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  max-width: 600px;
+  margin: 20px auto;
+  color: #ddd;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  margin: 15px 0 6px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #16191d;
+  color: #ddd;
+  font-weight: 500;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #58a6ff;
+  background: #0d1117;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #238636;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 7px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2ea043;
+}
+
+/* PDF photo */
+.pdf-photo {
+  max-width: 300px;
+  border-radius: 10px;
+  margin: 15px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* Headings */
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: #58a6ff;
+}
+
+/* Links */
+a {
+  color: #58a6ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+
+.logo-img {
+  height: 50px;        
+  width: auto;       
+  display: block;      
+  border-radius: 6px;  
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.4); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.7);
+}
