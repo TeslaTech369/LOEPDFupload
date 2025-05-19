@@ -16,6 +16,16 @@
       <a href="{{ url_for('home') }}" class="logo">
           <img src="https://i.postimg.cc/kMv1v8M5/photo_2025-05-17_01-14-27.jpg" alt="PDF Repo Logo" class="logo-img" />
       </a>Light Of Education
+      <div class="search-container">
+  <button id="search-icon" aria-label="Search">
+    <i class="fa-brands fa-searchengin"></i>
+  </button>
+  <form id="search-form" class="search-form" action="{{ url_for('search') }}" method="GET">
+    <input type="text" name="query" placeholder="Search..." />
+    <button type="submit"><i class="fa-brands fa-searchengin"></i></button>
+  </form>
+</div>
+
       <ul class="nav-menu" id="nav-menu">
         <li><a href="{{ url_for('home') }}"><i class="fa-solid fa-house-chimney-user"></i> Home</a></li>
         {% if session.get('admin_logged_in') %}
