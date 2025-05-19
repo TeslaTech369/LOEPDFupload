@@ -17,12 +17,12 @@
           <img src="https://i.postimg.cc/kMv1v8M5/photo_2025-05-17_01-14-27.jpg" alt="PDF Repo Logo" class="logo-img" />
       </a>Light Of Education
       <ul class="nav-menu" id="nav-menu">
-        <li><a href="{{ url_for('home') }}"><i class="fa-solid fa-house-chimney-user"></i>Home</a></li>
+        <li><a href="{{ url_for('home') }}"><i class="fa-solid fa-house-chimney-user"></i> Home</a></li>
         {% if session.get('admin_logged_in') %}
-          <li><a href="{{ url_for('upload') }}"><i class="fa-solid fa-upload"></i>Upload</a></li>
-          <li><a href="{{ url_for('logout') }}"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+          <li><a href="{{ url_for('upload') }}"><i class="fa-solid fa-upload"></i> Upload</a></li>
+          <li><a href="{{ url_for('logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
         {% else %}
-          <li><a href="{{ url_for('login') }}"><i class="fa-solid fa-user-lock"></i>Admin Login</a></li>
+          <li><a href="{{ url_for('login') }}"><i class="fa-solid fa-user-lock"></i> Admin Login</a></li>
         {% endif %}
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">&#9776;</button>
