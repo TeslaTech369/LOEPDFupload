@@ -159,6 +159,28 @@ def upload():
     
     return render_template('upload.html', modes=MODES, subjects=SUBJECTS)
 
+
+@app.route('/search')
+def search():
+    query = request.args.get('query', '').strip()
+    if not query:
+        return render_template('search_results.html', results=[], query=query)
+
+    # Case-insensitive search across title, subject, and description
+    search_filter = {
+        "$or": [
+            {"title": {"$regex": query, "$options": "i"}},
+            {"subject": {"$regex": query, "$options": "i"}},
+            {"description": {"$regex": query, "$options": "i"}},
+        ]
+    }
+
+    results = list(db.pdfs.find(search_filter))
+    return render_template('search_results.html', results=results, query=query)
+
+
+
+
 # Error handlers
 
 @app.errorhandler(404)
