@@ -109,6 +109,20 @@
   }
 });
 
+
+  const searchIcon = document.getElementById('search-icon');
+  const searchForm = document.getElementById('search-form');
+
+  searchIcon.addEventListener('click', () => {
+    searchForm.style.display = searchForm.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Optional: hide on outside click
+  document.addEventListener('click', (e) => {
+    if (!document.querySelector('.search-container').contains(e.target)) {
+      searchForm.style.display = 'none';
+    }
+  });
   </script>
 </body>
 </html>
