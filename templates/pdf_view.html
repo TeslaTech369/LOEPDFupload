@@ -2,13 +2,13 @@
 {% block title %}{{ pdf.title }} - PDF View{% endblock %}
 {% block content %}
   <h1>{{ pdf.title }}</h1>
-  <p><strong>Mode:</strong> {{ pdf.mode.capitalize() }}</p>
-  <p><strong>Subject:</strong> {{ pdf.subject|title }}</p>
+  <p><strong><i class="fa-solid fa-pen-to-square"></i>Mode:</strong> {{ pdf.mode.capitalize() }}</p>
+  <p><strong><i class="fa-solid fa-book-open"></i>Subject:</strong> {{ pdf.subject|title }}</p>
   {% if pdf.photo %}
     <img src="{{ pdf.photo }}" alt="{{ pdf.title }}" class="pdf-photo" />
   {% endif %}
   {% if pdf.description %}
-    <p><strong>Description:</strong> {{ pdf.description }}</p>
+    <p><strong><i class="fa-solid fa-comment-medical"></i>Description:</strong> {{ pdf.description }}</p>
   {% endif %}
   <div style="width: 100%; max-width: 700px; margin: 40px auto;">
   <a href="{{ pdf.link }}" target="_blank" download
@@ -30,10 +30,10 @@
      "
      onmouseover="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='scale(1.02)'"
      onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.transform='scale(1)'">
-    🚀 Click to View or Download PDF
+    <i class="fa-solid fa-download"></i>Click to View or Download PDF
   </a>
   </div>
 
 
-  <p><a href="{{ url_for('subject_page', mode=pdf.mode, subject=pdf.subject) }}">← Back to PDFs</a></p>
+  <p><a href="{{ url_for('subject_page', mode=pdf.mode, subject=pdf.subject) }}"><i class="fa-solid fa-square-caret-left"></i>Back to PDFs</a></p>
 {% endblock %}
